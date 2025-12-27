@@ -21,9 +21,10 @@ export default function BootstrapPage() {
               autoPlay
               muted
               loop
+              sandbox="allow-same-origin allow-scripts"
               className="absolute inset-0 h-full w-full object-cover"
             >
-              <source src="/Bootstrap/Encode.ai Bootstrap TV.MP4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dfmn6uww9/video/upload/v1766860203/Encode.ai_Bootstrap_TV_lts1qg.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 flex h-full flex-col items-start justify-start px-6 py-16 lg:px-8">
