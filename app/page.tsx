@@ -13,14 +13,13 @@ export default function Home() {
             <div className="flex flex-col items-center text-center">
               <div className="mb-8 inline-flex items-center gap-3 rounded-none border-2 border-white bg-black px-6 py-3 text-sm font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
                 <Sparkles className="h-5 w-5 text-[rgb(255,102,0)]" />
-                <span className="text-white">Building the future of AI</span>
+                <span className="text-white">Where Diverse Minds Converge</span>
               </div>
               <h1 className="mb-8 max-w-4xl text-5xl font-bold uppercase tracking-tight text-white lg:text-7xl">
-                Where innovation meets intelligence
+                Where Diverse Minds Converge
               </h1>
               <p className="mb-12 max-w-2xl text-lg font-mono text-white lg:text-xl">
-                A community of AI enthusiasts, developers, and innovators pushing the boundaries of artificial
-                intelligence through hands-on learning and real-world projects.
+                We are Encode.AI, a technical club affiliated with the CSE(AIML) department. Our club is guided by our mentor, Dr. Suresh Babu D, from the CSE(AI/ML) department. Our club encompasses various domains in which our members actively participate with the club motto, "Where Diverse Minds Converge".
               </p>
               <div className="flex flex-col gap-6 sm:flex-row">
                 <Button size="lg" className="gap-2">
