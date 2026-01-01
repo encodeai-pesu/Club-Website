@@ -167,7 +167,7 @@ export default function Teams() {
             <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
               <h1 className="mb-6 text-5xl font-bold uppercase tracking-tight text-white lg:text-6xl">Our Team</h1>
               <p className="max-w-2xl text-lg font-mono leading-relaxed text-white">
-                Meet the talented individuals driving innovation at encode ai
+                Meet the talented individuals driving innovation at Encode.AI. Our diverse team of club heads and members are passionate about AI/ML, Web Development, Competitive Programming, and more. Together, we're shaping the future of technology through collaboration and creativity.
               </p>
             </div>
           </section>
@@ -214,9 +214,9 @@ export default function Teams() {
               <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                 <div className="flex items-center gap-3">
                   <img src="/logo.png" alt="Encode AI" className="h-8 w-8 rounded-none border-2 border-white" />
-                  <span className="text-xl font-bold uppercase tracking-tight text-white">encode ai</span>
+                  <span className="text-xl font-bold uppercase tracking-tight text-white">Encode.AI</span>
                 </div>
-                <p className="text-sm font-mono text-white">© 2025 encode ai. All rights reserved.</p>
+                <p className="text-sm font-mono text-white">© 2025 Encode.AI. All rights reserved.</p>
               </div>
             </div>
           </footer>

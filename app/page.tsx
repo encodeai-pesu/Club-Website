@@ -37,7 +37,7 @@ export default function Home() {
               <div className="mb-20 text-center">
                 <h2 className="mb-6 text-4xl font-bold uppercase tracking-tight text-white lg:text-5xl">What We Do</h2>
                 <p className="mx-auto max-w-2xl text-lg font-mono text-white">
-                  encode ai is dedicated to exploring and advancing artificial intelligence through collaborative
+                  Encode.AI is dedicated to exploring and advancing artificial intelligence through collaborative
                   learning and practical application
                 </p>
               </div>
@@ -111,7 +111,7 @@ export default function Home() {
               <div className="mb-20 text-center">
                 <h2 className="mb-6 text-4xl font-bold uppercase tracking-tight text-white lg:text-5xl">Our Heads</h2>
                 <p className="mx-auto max-w-2xl text-lg font-mono text-white">
-                  Meet the dedicated members leading encode ai and fostering innovation
+                  Meet the dedicated members leading Encode.AI and fostering innovation
                 </p>
               </div>
               <div className="grid gap-8 md:grid-cols-2">
@@ -179,7 +179,7 @@ export default function Home() {
                   <img src="/logo.png" alt="Encode AI" className="h-8 w-8 rounded-none border-2 border-white" />
                   <span className="text-xl font-bold uppercase tracking-tight text-white">encode ai</span>
                 </div>
-                <p className="text-sm font-mono text-white">© 2025 encode ai. All rights reserved.</p>
+                <p className="text-sm font-mono text-white">© 2025 Encode.AI. All rights reserved.</p>
               </div>
             </div>
           </footer>

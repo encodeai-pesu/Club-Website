@@ -10,7 +10,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "encode ai - Where Innovation Meets Intelligence",
+  title: "Encode.AI - Where Innovation Meets Intelligence",
   description: "Join a community of creators, developers, and AI enthusiasts shaping the future",
   generator: "v0.app",
   icons: {

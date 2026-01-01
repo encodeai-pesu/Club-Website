@@ -46,9 +46,9 @@ export default function NLPWorkshopPage() {
               <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                 <div className="flex items-center gap-3">
                   <img src="/logo.png" alt="Encode AI" className="h-8 w-8 rounded-none border-2 border-white" />
-                  <span className="text-xl font-bold uppercase tracking-tight text-white">encode ai</span>
+                  <span className="text-xl font-bold uppercase tracking-tight text-white">Encode.AI</span>
                 </div>
-                <p className="text-sm font-mono text-white">© 2025 encode ai. All rights reserved.</p>
+                <p className="text-sm font-mono text-white">© 2025 Encode.AI. All rights reserved.</p>
               </div>
             </div>
           </footer>

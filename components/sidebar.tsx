@@ -38,7 +38,7 @@ export function Sidebar() {
           {/* Logo */}
           <div className="flex items-center gap-3 border-b-4 border-white px-6 py-8">
             <img src="/logo.png" alt="Encode AI" className="h-10 w-10 rounded-none border-2 border-white" />
-            <span className="text-2xl font-bold uppercase tracking-tight text-white">encode ai</span>
+            <span className="text-2xl font-bold uppercase tracking-tight text-white">Encode.AI</span>
           </div>
 
           {/* Navigation */}
@@ -66,7 +66,7 @@ export function Sidebar() {
 
           {/* Footer */}
           <div className="border-t-4 border-white px-6 py-6">
-            <p className="text-xs font-mono uppercase tracking-wider text-white">© 2025 encode ai</p>
+            <p className="text-xs font-mono uppercase tracking-wider text-white">© 2025 Encode.AI. All rights reserved.</p>
           </div>
         </div>
       </aside>
