@@ -116,7 +116,13 @@ export default function Home() {
               </div>
               <div className="grid gap-8 md:grid-cols-2">
                 <div className="flex flex-col items-center text-center">
-                  <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]" />
+                  <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] overflow-hidden">
+                    <img 
+                      src="/profile_pictures_png/Vinitha U S.png" 
+                      alt="Vinitha U S" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h3 className="mb-2 text-lg font-bold uppercase text-white">Vinitha U S</h3>
                   <p className="mb-3 text-sm font-bold uppercase text-[rgb(255,102,0)]">Club Head</p>
                   <p className="text-sm font-mono leading-relaxed text-white">
@@ -124,7 +130,13 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                  <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]" />
+                  <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] overflow-hidden">
+                    <img 
+                      src="/profile_pictures_png/Akshat Tripathi.png" 
+                      alt="Akshat Tripathi" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h3 className="mb-2 text-lg font-bold uppercase text-white">Akshat Tripathi</h3>
                   <p className="mb-3 text-sm font-bold uppercase text-[rgb(255,102,0)]">Club Head</p>
                   <p className="text-sm font-mono leading-relaxed text-white">
