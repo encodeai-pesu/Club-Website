@@ -16,14 +16,21 @@ interface Event {
 
 const upcomingEvents: Event[] = [
   {
+    id: "agentathon",
+    title: "Agentathon",
+    description: "24-hour hackathon focused on building innovative AI solutions for real-world problems. Teams of 3-4 members will compete for prizes worth ₹50,000.",
+    date: "January 17-18, 2026",
+    time: "9:00 AM - 9:00 AM",
+    featured: true,
+    link: "/agentathon"
+  },
+  {
     id: "algomania-3",
     title: "Algomania 3.0",
-    description: "48-hour hackathon focused on building innovative AI solutions for real-world problems. Teams of 3-5 members will compete for prizes worth $10,000.",
-    date: "March 15-17, 2025",
-    time: "9:00 AM - 9:00 PM",
-    // location: "Tech Hub Building, Room 301",
-    featured: true,
-    link: "/hackathon"
+    description: "Our next competitive coding challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
+    date: "Coming Soon",
+    time: "TBA",
+    featured: true
   }
 ]
 
@@ -120,9 +127,10 @@ export default function EventsPage() {
                       </Button>
                     </a>
                   ) : (
-                    <Button variant="outline" className="gap-2">
-                      Register Now <ExternalLink className="h-4 w-4" />
-                    </Button>
+                    <div className="inline-flex items-center gap-2 rounded-none border-2 border-white bg-zinc-950 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white">
+                      <Clock className="h-4 w-4 text-[rgb(255,102,0)]" />
+                      Registrations Starting Soon
+                    </div>
                   )}
                 </div>
               ))}
