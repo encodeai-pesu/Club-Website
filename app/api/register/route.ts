@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getDatabase } from '@/lib/mongodb'
-import { uploadToCloudinary } from '@/lib/cloudinary'
+import { UTApi } from 'uploadthing/server'
+
+const utapi = new UTApi()
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,43 +15,19 @@ export async function POST(request: NextRequest) {
     const teammate3 = JSON.parse(formData.get('teammate3') as string)
     const domain = formData.get('domain')
     const projectIdea = formData.get('projectIdea')
-    const pdfFile = formData.get('pdf') as File
+    const pdfUrl = formData.get('pdfUrl') as string // Now coming from client-side upload
+    const pdfFileName = formData.get('pdfFileName') as string
+    const pdfFileSize = formData.get('pdfFileSize') as string
     const queries = formData.get('queries')
 
     // Validate required fields
-    if (!teamName || !teamLeader || !domain || !projectIdea || !pdfFile) {
+    if (!teamName || !teamLeader || !domain || !projectIdea || !pdfUrl) {
       return NextResponse.json(
         { 
           success: false, 
           message: 'Missing required fields' 
         },
         { status: 400 }
-      )
-    }
-
-    // Upload PDF to Cloudinary
-    let pdfUrl = ''
-    let pdfPublicId = ''
-    
-    try {
-      const fileBuffer = Buffer.from(await pdfFile.arrayBuffer())
-      const uploadResult = await uploadToCloudinary(
-        fileBuffer,
-        pdfFile.name,
-        'agentathon-proposals'
-      )
-      pdfUrl = uploadResult.secure_url
-      pdfPublicId = uploadResult.public_id
-      
-      console.log('PDF uploaded to Cloudinary:', pdfUrl)
-    } catch (uploadError) {
-      console.error('Cloudinary upload error:', uploadError)
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Failed to upload PDF. Please try again.' 
-        },
-        { status: 500 }
       )
     }
 
@@ -70,9 +48,8 @@ export async function POST(request: NextRequest) {
         projectIdea,
         proposalPdf: {
           url: pdfUrl,
-          publicId: pdfPublicId,
-          fileName: pdfFile.name,
-          fileSize: pdfFile.size,
+          fileName: pdfFileName,
+          fileSize: parseInt(pdfFileSize || '0'),
         },
         queries: queries || '',
         status: 'pending', // pending, approved, rejected
