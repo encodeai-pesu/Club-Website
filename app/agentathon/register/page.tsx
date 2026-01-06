@@ -10,6 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Upload, Users, FileText, ExternalLink } from "lucide-react"
+import { useUploadThing } from "@/lib/uploadthing"
 
 interface TeamMember {
   name: string
@@ -59,6 +60,9 @@ export default function AgentathonRegistration() {
   const [pdfFile, setPdfFile] = useState<File | null>(null)
   const [queries, setQueries] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
+
+  const { startUpload } = useUploadThing("pdfUploader")
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -99,6 +103,20 @@ export default function AgentathonRegistration() {
     }
 
     try {
+      // Upload PDF first
+      setIsUploading(true)
+      const uploadedFiles = await startUpload([pdfFile])
+      setIsUploading(false)
+
+      if (!uploadedFiles || uploadedFiles.length === 0) {
+        alert("Failed to upload PDF. Please try again.")
+        setIsSubmitting(false)
+        return
+      }
+
+      const uploadedFile = uploadedFiles[0]
+
+      // Submit registration with PDF URL
       const formData = new FormData()
       formData.append("teamName", teamName)
       formData.append("teamLeader", JSON.stringify(teamLeader))
@@ -107,7 +125,9 @@ export default function AgentathonRegistration() {
       formData.append("teammate3", JSON.stringify(teammate3))
       formData.append("domain", domain)
       formData.append("projectIdea", projectIdea)
-      formData.append("pdf", pdfFile)
+      formData.append("pdfUrl", uploadedFile.url)
+      formData.append("pdfFileName", pdfFile.name)
+      formData.append("pdfFileSize", pdfFile.size.toString())
       formData.append("queries", queries)
 
       const response = await fetch("/api/register", {
@@ -426,10 +446,10 @@ export default function AgentathonRegistration() {
                 <Button
                   type="submit"
                   size="lg"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || isUploading}
                   className="min-w-[200px]"
                 >
-                  {isSubmitting ? "Submitting..." : "Submit Registration"}
+                  {isUploading ? "Uploading PDF..." : isSubmitting ? "Submitting..." : "Submit Registration"}
                 </Button>
               </div>
             </form>
