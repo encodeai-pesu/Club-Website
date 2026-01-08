@@ -13,7 +13,7 @@ export function Sidebar() {
   const links = [
     { href: "/", label: "Home", icon: Home },
     { href: "/events", label: "Events", icon: Calendar },
-    { href: "/teams", label: "Teams", icon: Users },
+    { href: "/teams", label: "Team", icon: Users },
   ]
 
   return (

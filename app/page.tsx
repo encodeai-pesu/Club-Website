@@ -118,7 +118,7 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] overflow-hidden">
                     <img 
-                      src="/profile_pictures_png/Vinitha U S.png" 
+                      src="/profile_pictures_png/Vinitha_U_S.png" 
                       alt="Vinitha U S" 
                       className="w-full h-full object-cover"
                     />
@@ -126,13 +126,13 @@ export default function Home() {
                   <h3 className="mb-2 text-lg font-bold uppercase text-white">Vinitha U S</h3>
                   <p className="mb-3 text-sm font-bold uppercase text-[rgb(255,102,0)]">Club Head</p>
                   <p className="text-sm font-mono leading-relaxed text-white">
-                    ML Engineer passionate about democratizing AI education
+                    Computer Vision researcher with focus on real-time applications
                   </p>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] overflow-hidden">
                     <img 
-                      src="/profile_pictures_png/Akshat Tripathi.png" 
+                      src="/profile_pictures_png/Akshat_Tripathi.png" 
                       alt="Akshat Tripathi" 
                       className="w-full h-full object-cover"
                     />
@@ -140,7 +140,7 @@ export default function Home() {
                   <h3 className="mb-2 text-lg font-bold uppercase text-white">Akshat Tripathi</h3>
                   <p className="mb-3 text-sm font-bold uppercase text-[rgb(255,102,0)]">Club Head</p>
                   <p className="text-sm font-mono leading-relaxed text-white">
-                    Computer Vision researcher with focus on real-time applications
+                    Aspiring ML Engineer with a passion for LLM and Agentic Systems               
                   </p>
                 </div>
               </div>
@@ -156,11 +156,11 @@ export default function Home() {
                   <div className="text-sm font-bold uppercase tracking-wider text-white">Active Members</div>
                 </div>
                 <div className="text-center border-x-2 border-white">
-                  <div className="mb-4 text-6xl font-bold uppercase text-[rgb(255,102,0)]">25+</div>
+                  <div className="mb-4 text-6xl font-bold uppercase text-[rgb(255,102,0)]">5+</div>
                   <div className="text-sm font-bold uppercase tracking-wider text-white">Projects Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="mb-4 text-6xl font-bold uppercase text-[rgb(255,102,0)]">6+</div>
+                  <div className="mb-4 text-6xl font-bold uppercase text-[rgb(255,102,0)]">10+</div>
                   <div className="text-sm font-bold uppercase tracking-wider text-white">Industry Partners</div>
                 </div>
               </div>

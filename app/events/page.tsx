@@ -27,7 +27,7 @@ const upcomingEvents: Event[] = [
   {
     id: "algomania-3",
     title: "Algomania 3.0",
-    description: "Our next competitive coding challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
+    description: "Our next Competitive Programming challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
     date: "Coming Soon",
     time: "TBA",
     featured: true
@@ -61,9 +61,9 @@ const pastEvents: Event[] = [
   },
   {
     id: "nlp-workshop",
-    title: "NLP Workshop",
+    title: "Fine-tuning BERT Workshop",
     description: "Comprehensive hands-on workshop focused on demystifying BERT—from understanding the core transformer architecture to deploying fine-tuned models for tasks like sentiment analysis and classification.",
-    date: "2025",
+    date: "August 20, 2025",
     // location: "",
     detailLink: "/nlp-workshop"
   }
