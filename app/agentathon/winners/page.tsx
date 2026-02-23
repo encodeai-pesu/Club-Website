@@ -52,13 +52,11 @@ export default function AgentathonWinnersPage() {
                     {/* Winners */}
                     <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
                         <div className="space-y-12">
-
                             {winners.map((winner, index) => (
                                 <div
                                     key={index}
                                     className="rounded-none border-2 border-white bg-black overflow-hidden shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]"
                                 >
-                                    {/* Title */}
                                     <div className="flex items-center gap-4 border-b-2 border-white px-8 py-6">
                                         <Trophy className="h-6 w-6 text-[rgb(255,102,0)] flex-shrink-0" />
                                         <div>
@@ -81,7 +79,6 @@ export default function AgentathonWinnersPage() {
                                     </div>
                                 </div>
                             ))}
-
                         </div>
                     </section>
 
