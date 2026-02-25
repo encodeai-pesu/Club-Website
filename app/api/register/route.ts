@@ -1,105 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDatabase } from '@/lib/mongodb'
-import { UTApi } from 'uploadthing/server'
-
-const utapi = new UTApi()
-
-interface TeamMember {
-  name: string
-  college: string
-  srn: string
-  phone: string
-  linkedin: string
-  github: string
-  isPesuHostellite: boolean
-}
-
-interface TeamLeader extends TeamMember {
-  email: string
-}
 
 export async function POST(request: NextRequest) {
-  try {
-    const formData = await request.formData()
-    
-    const teamName = formData.get('teamName')
-    const teamLeader: TeamLeader = JSON.parse(formData.get('teamLeader') as string)
-    const teammate1: TeamMember = JSON.parse(formData.get('teammate1') as string)
-    const teammate2: TeamMember = JSON.parse(formData.get('teammate2') as string)
-    const teammate3: TeamMember = JSON.parse(formData.get('teammate3') as string)
-    const track = formData.get('track')
-    const pdfUrl = formData.get('pdfUrl') as string // Now coming from client-side upload
-    const pdfFileName = formData.get('pdfFileName') as string
-    const pdfFileSize = formData.get('pdfFileSize') as string
+  // Agentathon registration is closed
+  return NextResponse.json(
+    { 
+      success: false, 
+      message: 'Registration is closed. Agentathon was held on January 31, 2026.' 
+    },
+    { status: 403 }
+  )
+}
 
-    // Validate required fields
-    if (!teamName || !teamLeader || !track || !pdfUrl) {
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Missing required fields' 
-        },
-        { status: 400 }
-      )
-    }
-
-    // Save to MongoDB
-    try {
-      const db = await getDatabase()
-      const registrationsCollection = db.collection('agentathon_registrations')
-      
-      const registration = {
-        teamName,
-        teamLeader,
-        teammates: [
-          teammate1.name ? teammate1 : null,
-          teammate2.name ? teammate2 : null,
-          teammate3.name ? teammate3 : null,
-        ].filter(Boolean), // Remove empty teammates
-        track,
-        proposalPdf: {
-          url: pdfUrl,
-          fileName: pdfFileName,
-          fileSize: parseInt(pdfFileSize || '0'),
-        },
-        status: 'pending', // pending, approved, rejected
-        submittedAt: new Date(),
-        updatedAt: new Date(),
-      }
-
-      const result = await registrationsCollection.insertOne(registration)
-      
-      console.log('Registration saved to MongoDB:', result.insertedId)
-
-      // TODO: Send confirmation email
-      // await sendConfirmationEmail(teamLeader.email, teamName)
-
-      return NextResponse.json(
-        { 
-          success: true, 
-          message: 'Registration submitted successfully!',
-          registrationId: result.insertedId.toString(),
-        },
-        { status: 200 }
-      )
-    } catch (dbError) {
-      console.error('MongoDB error:', dbError)
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Failed to save registration. Please try again.' 
-        },
-        { status: 500 }
-      )
-    }
-  } catch (error) {
-    console.error('Registration error:', error)
-    return NextResponse.json(
-      { 
-        success: false, 
-        message: 'An unexpected error occurred. Please try again.' 
-      },
-      { status: 500 }
-    )
-  }
+export async function GET(request: NextRequest) {
+  return NextResponse.json(
+    { 
+      success: false, 
+      message: 'Registration is closed. Agentathon was held on January 31, 2026.' 
+    },
+    { status: 403 }
+  )
 }

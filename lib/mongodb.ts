@@ -1,10 +1,6 @@
 import { MongoClient, Db } from 'mongodb'
 
-if (!process.env.MONGODB_URI) {
-  throw new Error('Please add your MongoDB URI to .env.local')
-}
-
-const uri = process.env.MONGODB_URI
+const uri = process.env.MONGODB_URI || ''
 const options = {}
 
 let client: MongoClient
@@ -15,7 +11,7 @@ declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (uri && process.env.NODE_ENV === 'development') {
   // In development mode, use a global variable so that the value
   // is preserved across module reloads caused by HMR (Hot Module Replacement).
   if (!global._mongoClientPromise) {
@@ -23,10 +19,13 @@ if (process.env.NODE_ENV === 'development') {
     global._mongoClientPromise = client.connect()
   }
   clientPromise = global._mongoClientPromise
-} else {
+} else if (uri) {
   // In production mode, it's best to not use a global variable.
   client = new MongoClient(uri, options)
   clientPromise = client.connect()
+} else {
+  // No MongoDB URI provided - will throw error if actually used
+  clientPromise = Promise.reject(new Error('MongoDB URI not configured'))
 }
 
 // Export a module-scoped MongoClient promise. By doing this in a
@@ -35,6 +34,9 @@ export default clientPromise
 
 // Helper function to get the database
 export async function getDatabase(): Promise<Db> {
+  if (!process.env.MONGODB_URI) {
+    throw new Error('Please add your MongoDB URI to .env.local')
+  }
   const client = await clientPromise
   return client.db(process.env.MONGODB_DB_NAME || 'encodeai_club')
 }
