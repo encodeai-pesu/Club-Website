@@ -8,7 +8,7 @@ interface Event {
   description: string
   date: string
   time?: string
-  // location: string
+  location?: string
   featured?: boolean
   link?: string
   detailLink?: string
@@ -20,9 +20,12 @@ const upcomingEvents: Event[] = [
     id: "algomania-3",
     title: "Algomania 3.0",
     description: "Our next Competitive Programming challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
-    date: "Coming Soon",
-    time: "TBA",
-    featured: true
+    date: "March 14, 2026",
+    time: "8:00 AM - 6:00 PM",
+    location: "MRD Auditorium",
+    featured: true,
+    link: "/algomania-3",
+    detailLink: "/algomania-3"
   }
 ]
 
@@ -117,10 +120,12 @@ export default function EventsPage() {
                         <span>{event.time}</span>
                       </div>
                     )}
-                    {/* <div className="flex items-center gap-3 font-mono text-sm font-bold text-white">
-                      <MapPin className="h-5 w-5" />
-                      <span>{event.location}</span>
-                    </div> */}
+                    {event.location && (
+                      <div className="flex items-center gap-3 font-mono text-sm font-bold text-white">
+                        <MapPin className="h-5 w-5" />
+                        <span>{event.location}</span>
+                      </div>
+                    )}
                   </div>
                   {event.link ? (
                     <a href={event.link}>
