@@ -8,12 +8,12 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Users, Code2 } from "lucide-react"
 
-const WEBHOOK_URL =
-    "https://script.google.com/macros/s/AKfycbwoMB9s4i_a0gZKGADRaDcO3gjplMQ_kAyv_Ta7ZM-ICD2R5D93zyextBrmWf4K8iCrkw/exec"
 
 interface TeamMember {
     name: string
     college: string
+    branch: string
+    semester: string
     srn: string
     phone: string
     leetcode: string
@@ -30,6 +30,8 @@ const emptyLeader = (): TeamLeader => ({
     name: "",
     email: "",
     college: "",
+    branch: "",
+    semester: "",
     srn: "",
     phone: "",
     leetcode: "",
@@ -41,6 +43,8 @@ const emptyLeader = (): TeamLeader => ({
 const emptyMember = (): TeamMember => ({
     name: "",
     college: "",
+    branch: "",
+    semester: "",
     srn: "",
     phone: "",
     leetcode: "",
@@ -66,8 +70,10 @@ export default function AlgomaniaRegistration() {
 
     const validateMember = (member: TeamMember, label: string): string | null => {
         if (!member.name) return `Please fill in ${label}'s full name`
-        if (!member.college) return `Please fill in ${label}'s college name`
         if (!member.srn) return `Please fill in ${label}'s SRN / Student ID`
+        if (!member.college) return `Please fill in ${label}'s college name`
+        if (!member.branch) return `Please fill in ${label}'s branch`
+        if (!member.semester) return `Please fill in ${label}'s semester`
         if (!member.phone) return `Please fill in ${label}'s phone number`
         // Coding profiles are optional — no validation needed
         return null
@@ -114,48 +120,59 @@ export default function AlgomaniaRegistration() {
         }
 
         try {
-            // Build URLSearchParams — required for no-cors POST to Google Apps Script
-            // (application/x-www-form-urlencoded is a CORS-safelisted content type)
-            const params = new URLSearchParams()
-            params.append("teamName", teamName)
-            // Team Leader
-            params.append("leaderName", teamLeader.name)
-            params.append("leaderEmail", teamLeader.email)
-            params.append("leaderCollege", teamLeader.college)
-            params.append("leaderSrn", teamLeader.srn)
-            params.append("leaderPhone", teamLeader.phone)
-            params.append("leaderLeetcode", teamLeader.leetcode)
-            params.append("leaderCodeforces", teamLeader.codeforces)
-            params.append("leaderCodechef", teamLeader.codechef)
-            params.append("leaderHostellite", teamLeader.isPesuHostellite ? "Yes" : "No")
-            // Member 1
-            params.append("member1Name", member1.name)
-            params.append("member1College", member1.college)
-            params.append("member1Srn", member1.srn)
-            params.append("member1Phone", member1.phone)
-            params.append("member1Leetcode", member1.leetcode)
-            params.append("member1Codeforces", member1.codeforces)
-            params.append("member1Codechef", member1.codechef)
-            params.append("member1Hostellite", member1.isPesuHostellite ? "Yes" : "No")
-            // Member 2
-            params.append("member2Name", member2.name)
-            params.append("member2College", member2.college)
-            params.append("member2Srn", member2.srn)
-            params.append("member2Phone", member2.phone)
-            params.append("member2Leetcode", member2.leetcode)
-            params.append("member2Codeforces", member2.codeforces)
-            params.append("member2Codechef", member2.codechef)
-            params.append("member2Hostellite", member2.isPesuHostellite ? "Yes" : "No")
-            params.append("submittedAt", new Date().toISOString())
-
-            // Send to Google Sheets webhook (no-cors, form-encoded)
-            await fetch(WEBHOOK_URL, {
+            // Send to our API route (server-side, no CORS issues)
+            const response = await fetch("/api/algomania-register", {
                 method: "POST",
-                mode: "no-cors",
-                body: params,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    teamName,
+                    // Leader
+                    leaderName: teamLeader.name,
+                    leaderSrn: teamLeader.srn,
+                    leaderCollege: teamLeader.college,
+                    leaderBranch: teamLeader.branch,
+                    leaderSemester: teamLeader.semester,
+                    leaderPhone: teamLeader.phone,
+                    leaderEmail: teamLeader.email,
+                    leaderLeetcode: teamLeader.leetcode,
+                    leaderCodeforces: teamLeader.codeforces,
+                    leaderCodechef: teamLeader.codechef,
+                    leaderHostellite: teamLeader.isPesuHostellite ? "Yes" : "No",
+
+                    // Member 1 (mapped to M2 in sheet)
+                    member1Name: member1.name,
+                    member1Srn: member1.srn,
+                    member1College: member1.college,
+                    member1Branch: member1.branch,
+                    member1Semester: member1.semester,
+                    member1Phone: member1.phone,
+                    member1Leetcode: member1.leetcode,
+                    member1Codeforces: member1.codeforces,
+                    member1Codechef: member1.codechef,
+                    member1Hostellite: member1.isPesuHostellite ? "Yes" : "No",
+
+                    // Member 2 (mapped to M3 in sheet)
+                    member2Name: member2.name,
+                    member2Srn: member2.srn,
+                    member2College: member2.college,
+                    member2Branch: member2.branch,
+                    member2Semester: member2.semester,
+                    member2Phone: member2.phone,
+                    member2Leetcode: member2.leetcode,
+                    member2Codeforces: member2.codeforces,
+                    member2Codechef: member2.codechef,
+                    member2Hostellite: member2.isPesuHostellite ? "Yes" : "No",
+                    submittedAt: new Date().toISOString(),
+                }),
             })
 
-            // no-cors means we can't read the response, so optimistically show success
+            const result = await response.json()
+            if (!result.success) {
+                showError("Failed to submit registration. Please try again.")
+                setIsSubmitting(false)
+                return
+            }
+
             setShowSuccessModal(true)
 
             // Reset form
@@ -217,34 +234,67 @@ export default function AlgomaniaRegistration() {
                     </div>
                 )}
 
-                {/* College */}
-                <div>
-                    <Label htmlFor={`${prefix}-college`}>
-                        College Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                        id={`${prefix}-college`}
-                        value={member.college}
-                        onChange={(e) => setMember({ ...member, college: e.target.value })}
-                        placeholder="Enter college name"
-                        required
-                        className="mt-2"
-                    />
+                {/* College and Branch */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <Label htmlFor={`${prefix}-college`}>
+                            College Name <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                            id={`${prefix}-college`}
+                            value={member.college}
+                            onChange={(e) => setMember({ ...member, college: e.target.value })}
+                            placeholder="Enter college name"
+                            required
+                            className="mt-2"
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor={`${prefix}-branch`}>
+                            Branch <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                            id={`${prefix}-branch`}
+                            value={member.branch}
+                            onChange={(e) => setMember({ ...member, branch: e.target.value })}
+                            placeholder="e.g. CSE, ECE"
+                            required
+                            className="mt-2"
+                        />
+                    </div>
                 </div>
 
-                {/* SRN */}
-                <div>
-                    <Label htmlFor={`${prefix}-srn`}>
-                        SRN / Student ID <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                        id={`${prefix}-srn`}
-                        value={member.srn}
-                        onChange={(e) => setMember({ ...member, srn: e.target.value })}
-                        placeholder="Enter SRN or Student ID"
-                        required
-                        className="mt-2"
-                    />
+                {/* SRN and Semester */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <Label htmlFor={`${prefix}-srn`}>
+                            SRN / Student ID <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                            id={`${prefix}-srn`}
+                            value={member.srn}
+                            onChange={(e) => setMember({ ...member, srn: e.target.value })}
+                            placeholder="Enter SRN or Student ID"
+                            required
+                            className="mt-2"
+                        />
+                    </div>
+                    <div>
+                        <Label htmlFor={`${prefix}-semester`}>
+                            Semester <span className="text-red-500">*</span>
+                        </Label>
+                        <Input
+                            id={`${prefix}-semester`}
+                            type="number"
+                            min="1"
+                            max="8"
+                            value={member.semester}
+                            onChange={(e) => setMember({ ...member, semester: e.target.value })}
+                            placeholder="e.g. 4"
+                            required
+                            className="mt-2"
+                        />
+                    </div>
                 </div>
 
                 {/* Phone */}
