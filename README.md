@@ -1,4 +1,4 @@
-# EncodeAI Club Website
+# EncodeAI Club Website!!!
 
 Official website showcasing EncodeAI events, hackathons, workshops, and team members.
 
