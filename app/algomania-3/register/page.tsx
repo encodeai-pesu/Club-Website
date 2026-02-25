@@ -398,11 +398,11 @@ export default function AlgomaniaRegistration() {
                             <div className="flex items-center gap-4 mb-6">
                                 <Users className="h-12 w-12 text-[rgb(255,102,0)]" />
                                 <h1 className="text-5xl font-bold uppercase tracking-tight text-white lg:text-6xl">
-                                    Algomania
+                                    Algomania 3.0 Registration
                                 </h1>
                             </div>
                             <p className="max-w-3xl text-lg font-mono leading-relaxed text-white mb-8">
-                                Register your team for Algomania — the ultimate competitive programming showdown!
+                                Register your team for Algomania 3.0 — the Ultimate Placement Oriented Competitive Programming showdown!
                             </p>
 
                             {/* Important Notes */}

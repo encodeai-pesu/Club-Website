@@ -42,7 +42,7 @@ export default function AgentathonPage() {
             <div className="flex flex-col items-center text-center">
               <div className="mb-8 inline-flex items-center gap-3 rounded-none border-2 border-white bg-[rgb(255,102,0)] px-6 py-3 text-sm font-bold uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
                 <Zap className="h-5 w-5 text-black" />
-                <span className="text-black">Competitive Coding Challenge</span>
+                <span className="text-black">Competitive Programming Challenge</span>
               </div>
               <h1 className="mb-8 max-w-4xl text-6xl font-bold uppercase tracking-tight text-white lg:text-8xl">
                 ALGOMANIA 3.0
@@ -51,7 +51,7 @@ export default function AgentathonPage() {
                 Competitive Programming Team Event
               </p>
               <p className="mb-12 max-w-2xl text-lg font-mono leading-relaxed text-white">
-                Organized by Encode AI, PES University. An inter-college competitive coding competition 
+                Organized by EncodeAI. PES University's one and only Inter-college, Placement oriented Competitive Programming competition 
                 to assess algorithmic thinking, problem-solving ability, teamwork, and adaptability through 
                 preliminary screening and offline main competition on HackerRank.
               </p>
@@ -78,18 +78,19 @@ export default function AgentathonPage() {
                   <Calendar className="mb-4 h-12 w-12 text-[rgb(255,102,0)]" />
                   <h3 className="mb-2 text-xl font-bold uppercase text-white">Date</h3>
                   <p className="font-mono text-sm text-white">March 14, 2026</p>
-                  <p className="font-mono text-xs text-white mt-2">(Prelims: March 8)</p>
+                  <p className="font-mono text-xs text-white mt-2">Prelims: March 10, 6PM</p>
+                  <p className="font-mono text-xs text-white mt-2">Last date to apply: March 10, 2PM</p>
                 </div>
                 <div className="rounded-none border-2 border-white bg-black p-8 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
                   <MapPin className="mb-4 h-12 w-12 text-[rgb(255,102,0)]" />
                   <h3 className="mb-2 text-xl font-bold uppercase text-white">Venue</h3>
                   <p className="font-mono text-sm text-white">MRD Auditorium</p>
-                  <p className="font-mono text-xs text-white mt-2">(Online prelims via HackerRank)</p>
+                  <p className="font-mono text-xs text-white mt-2">Online prelims via HackerRank</p>
                 </div>
                 <div className="rounded-none border-2 border-white bg-black p-8 shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
                   <Trophy className="mb-4 h-12 w-12 text-[rgb(255,102,0)]" />
                   <h3 className="mb-2 text-xl font-bold uppercase text-white">Prize Pool</h3>
-                  <p className="font-mono text-sm text-white">₹35,000 + Mentor Support</p>
+                  <p className="font-mono text-sm text-white">₹30,000 + Mentor Support</p>
                 </div>
               </div>
             </div>
@@ -110,10 +111,10 @@ export default function AgentathonPage() {
                   </div>
                   <h3 className="mb-4 text-2xl font-bold uppercase text-white">Competitive Programming Focus</h3>
                   <p className="font-mono text-sm leading-relaxed text-white">
-                    Algomania is an inter-college competitive coding competition designed to assess
+                    Algomania is an Inter-college placement oriented Competitive Programming competition designed to assess
                     algorithmic thinking, problem-solving ability, teamwork, and adaptability through multiple
-                    competitive stages. The event consists of an online preliminary screening followed by an
-                    offline main competition conducted using the HackerRank platform.
+                    competitive stages. The event consists of an online preliminary screening on March 10, followed by an
+                    offline main competition conducted using the HackerRank platform. Last date to register is March 10, 2026 by 2PM.
                   </p>
                 </div>
                 <div className="rounded-none border-2 border-white bg-black p-8 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
@@ -122,8 +123,10 @@ export default function AgentathonPage() {
                   </div>
                   <h3 className="mb-4 text-2xl font-bold uppercase text-white">Team-Based Competition</h3>
                   <p className="font-mono text-sm leading-relaxed text-white">
-                    Team-based competitive coding event. Top 32 teams from the preliminary round qualify for the main event. 
-                    Teams are divided into 8 divisions with 4 teams each, competing through multiple cycles before the top 8 advance to finals.
+                    Team-based competitive programming event. Top 40 teams from the preliminary round qualify for the main event. 
+                    Teams are divided into 10 divisions with 4 teams each, competing through multiple cycles before the top 8 advance to finals.
+                    Advacement of teams is based on global rankings after each cycle, ensuring dynamic competition and rewarding consistent performance.
+                    It will be measured on HackerRank's global leaderboard.
                   </p>
                 </div>
               </div>
@@ -133,8 +136,8 @@ export default function AgentathonPage() {
                   <li className="flex items-start gap-3">
                     <div className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-none bg-[rgb(255,102,0)]" />
                     <div>
-                      <span className="font-bold text-[rgb(255,102,0)]">Preliminary Round (March 8):</span>
-                      <span className="ml-1">Online via HackerRank. Top 32 teams qualify for main event.</span>
+                      <span className="font-bold text-[rgb(255,102,0)]">Preliminary Round (March 10, 6PM):</span>
+                      <span className="ml-1">Online via HackerRank. Top 40 teams qualify for main event.</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -170,6 +173,10 @@ export default function AgentathonPage() {
                   <li className="flex items-start gap-3">
                     <div className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-none bg-[rgb(255,102,0)]" />
                     <span>Number of problems solved</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-none bg-[rgb(255,102,0)]" />
+                    <span>Number of test cases passed in a problem</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-none bg-[rgb(255,102,0)]" />
@@ -224,7 +231,7 @@ export default function AgentathonPage() {
                   Ready to Compete?
                 </h2>
                 <p className="mb-8 font-mono text-lg text-white">
-                  Test your algorithmic skills in this multi-stage competitive programming challenge
+                  Test your algorithmic skills in this multi-stage, placement oriented Competitive Programming challenge
                 </p>
                 <Link href="/algomania-3/register">
                   <Button size="lg" className="gap-2">

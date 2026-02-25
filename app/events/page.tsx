@@ -19,7 +19,7 @@ const upcomingEvents: Event[] = [
   {
     id: "algomania-3",
     title: "Algomania 3.0",
-    description: "Our next Competitive Programming challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
+    description: "PESU's only Placement Oriented Competitive Programming challenge! Get ready to test your algorithmic skills and problem-solving abilities in this exciting event.",
     date: "March 14, 2026",
     time: "8:00 AM - 6:00 PM",
     location: "MRD Auditorium",
