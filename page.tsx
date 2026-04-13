@@ -126,11 +126,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-6 h-40 w-40 rounded-none border-2 border-white bg-[rgb(255,102,0)] shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]" />
-                  <h3 className="mb-2 text-lg font-bold uppercase text-white">Akshat Tripathi</h3>
-                  <p className="mb-3 text-sm font-bold uppercase text-[rgb(255,102,0)]">Club Head</p>
-                  <p className="text-sm font-mono leading-relaxed text-white">
-                    Computer Vision researcher with focus on real-time applications
-                  </p>
+                    {/* Removed Akshat Tripathi (Club Head) info */}
                 </div>
               </div>
             </div>

@@ -21,7 +21,7 @@ export default function Teams() {
       name: "Club Heads",
       members: [
         { name: "Vinitha U S", github: "", linkedin: "", role: "Head", image: "/profile_pictures_optimized/Vinitha_U_S.webp" },
-        { name: "Akshat Tripathi", github: "https://github.com/MrAstatine", linkedin: "https://www.linkedin.com/in/akshat-tripathi-2a7932333/", role: "Head", image: "/profile_pictures_optimized/Akshat_Tripathi.webp" }
+        // Removed Akshat Tripathi (Club Head)
       ]
     },
     {

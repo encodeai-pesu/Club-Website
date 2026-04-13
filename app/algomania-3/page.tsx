@@ -256,9 +256,7 @@ export default function AgentathonPage() {
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-none border-2 border-white bg-black p-8 text-center shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
                   <Users className="mx-auto mb-4 h-12 w-12 text-[rgb(255,102,0)]" />
-                  <h3 className="mb-2 text-lg font-bold uppercase text-white">Akshat</h3>
-                  <p className="mb-3 font-mono text-xs text-[rgb(255,102,0)]">Club Head</p>
-                  <p className="font-mono text-sm text-white">+91 77956 82043</p>
+                  {/* Removed Akshat (Club Head) info */}
                 </div>
                 <div className="rounded-none border-2 border-white bg-black p-8 text-center shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]">
                   <Users className="mx-auto mb-4 h-12 w-12 text-[rgb(255,102,0)]" />
